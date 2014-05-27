@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	
+	<record id="action_lmo_currency_form" model="ir.actions.act_window">
+		<field name="name">Currency</field>
+		<field name="res_model">lmo.currency</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem action="action_lmo_currency_form" id="menu_action_lmo_currency_form" parent="menu_lmo_config" sequence="94"/>
+	
+	<record id="view_lmo_currency_tree" model="ir.ui.view">
+		<field name="name">lmo.currency.tree</field>
+		<field name="model">lmo.currency</field>
+		<field name="arch" type="xml">
+			<tree string="Currency">
+				<field name="currency_name"/>
+				<field name="currency_code"/>
+				<!--field name="round_liquid_code"/-->
+			</tree>
+		</field>
+	</record>
+
+        <record id="view_lmo_currency_form" model="ir.ui.view">
+            <field name="name">lmo.currency.form</field>
+            <field name="model">lmo.currency</field>
+            <field name="arch" type="xml">
+                <form string="Codigos" version="7.0">
+		   <notebook>
+		    <page string="General Info">
+                        <group>
+                            <field name="currency_name"/>
+			    <field name="currency_code"/>
+                        </group>
+		    </page>
+		    <page string="Related groups">
+                        <group>
+		    		<field nolabel="1" name="currency_related_groups"/> 
+                        </group>
+		    </page>
+		   </notebook>
+                </form>
+            </field>
+        </record>
+	
+	<record id="view_lmo_currency_group_tree" model="ir.ui.view">
+		<field name="name">lmo.currency.group.tree</field>
+		<field name="model">lmo.currency.group</field>
+		<field name="arch" type="xml">
+			<tree string="Currency">
+				<field name="currency_current"/>
+				<field name="currency_id"/>
+				<field name="currency_date_start"/>
+				<field name="currency_date_finish"/>
+                            	<field name="currency_rounding_pay"/>
+			    	<field name="currency_rounding_deductions"/>
+			</tree>
+		</field>
+	</record>
+        <record id="view_lmo_currency_group_form" model="ir.ui.view">
+            <field name="name">lmo.currency.group.form</field>
+            <field name="model">lmo.currency.group</field>
+            <field name="arch" type="xml">
+                <form string="Codes" version="7.0">
+                        <group>
+				<field name="currency_current"/>
+				<field name="currency_date_start"/>
+				<field name="currency_date_finish"/>
+                            	<field name="currency_rounding_pay"/>
+			    	<field name="currency_rounding_deductions"/>
+                        </group>
+                        <group>
+		    		<field nolabel="1" name="currency_bills"/>
+                        </group>
+                </form>
+            </field>
+        </record>
+	
+	<record id="view_lmo_bill_form" model="ir.ui.view">
+		<field name="name">lmo.bill.form</field>
+		<field name="model">lmo.bill</field>
+		<field name="arch" type="xml">
+			<form string="Bill">
+				<field name="bill_id"/>
+				<field name="bill_description"/>
+			</form>
+		</field>
+	</record>
+
+	<record id="view_lmo_bill_tree" model="ir.ui.view">
+		<field name="name">lmo.bill.tree</field>
+		<field name="model">lmo.bill</field>
+		<field name="arch" type="xml">
+			<tree string="Bill">
+				<field name="bill_id"/>
+				<field name="bill_description"/>
+			</tree>
+		</field>
+	</record>
+</data>
+</openerp>

@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <!--****************Acciones***********************************-->
+	<record id="action_bps_gender_form" model="ir.actions.act_window">
+		<field name="name">Gender</field>
+		<field name="res_model">hr.uy.bps.gender</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_country_form" model="ir.actions.act_window">
+		<field name="name">Country</field>
+		<field name="res_model">hr.uy.bps.country</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_type_of_remuneration_form" model="ir.actions.act_window">
+		<field name="name">Type of remuneration</field>
+		<field name="res_model">hr.uy.bps.type.of.remuneration</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<!--field name="search_view_id" ref="view_hr_uy_bps_remuneration_search"/-->
+	</record>
+	<record id="action_bps_functional_link_form" model="ir.actions.act_window">
+		<field name="name">Functional link</field>
+		<field name="res_model">hr.uy.bps.functional.link</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_nationality_form" model="ir.actions.act_window">
+		<field name="name">Nationality</field>
+		<field name="res_model">hr.uy.bps.nationality</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_marital_status_form" model="ir.actions.act_window">
+		<field name="name">Marital status</field>
+		<field name="res_model">hr.uy.bps.marital.status</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_health_insurance_form" model="ir.actions.act_window">
+		<field name="name">Health insurance</field>
+		<field name="res_model">hr.uy.bps.health.insurance</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_termination_form" model="ir.actions.act_window">
+		<field name="name">Termination</field>
+		<field name="res_model">hr.uy.bps.termination</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_exemption_of_contribution_form" model="ir.actions.act_window">
+		<field name="name">Exemption of contribution</field>
+		<field name="res_model">hr.uy.bps.exemption.of.contribution</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_special_computing_form" model="ir.actions.act_window">
+		<field name="name">Special computing</field>
+		<field name="res_model">hr.uy.bps.special.computing</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_hours_per_week_form" model="ir.actions.act_window">
+		<field name="name">Hours per week</field>
+		<field name="res_model">hr.uy.hours.per.week</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_accumulation_labor_form" model="ir.actions.act_window">
+		<field name="name">Acummulation of labor</field>
+		<field name="res_model">hr.uy.accumulation.labor</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_concep_form" model="ir.actions.act_window">
+		<field name="name">Concept</field>
+		<field name="res_model">hr.uy.bps.concept</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_category_rural_form" model="ir.actions.act_window">
+		<field name="name">Rural workers</field>
+		<field name="res_model">hr.uy.bps.category.rural</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_category_construction_form" model="ir.actions.act_window">
+		<field name="name">Construction workers</field>
+		<field name="res_model">hr.uy.bps.category.construction</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_labor_relations_form" model="ir.actions.act_window">
+		<field name="name">Labor relations</field>
+		<field name="res_model">hr.uy.bps.labor.relations</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_legal_nature_form" model="ir.actions.act_window">
+		<field name="name">Legal nature</field>
+		<field name="res_model">hr.uy.bps.legal.nature</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_hr_uy_document_type_form" model="ir.actions.act_window">
+		<field name="name">Type of document</field>
+		<field name="res_model">hr.uy.document.type</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_mtss_working_groups_form" model="ir.actions.act_window">
+		<field name="name">Working groups</field>
+		<field name="res_model">hr.uy.mtss.working.groups</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_mtss_working_subgroups_form" model="ir.actions.act_window">
+		<field name="name">Subworking groups</field>
+		<field name="res_model">hr.uy.mtss.working.subgroups</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record id="action_bps_contrib_form" model="ir.actions.act_window">
+            <field name="name">Contributions and taxpayer type</field>
+            <field name="res_model">hr.uy.bps.contributions.and.taxpayer.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!--field name="search_view_id" ref="view_hr_uy_bps_contrib_search"/-->
+        </record>
+
+
+		<!--*********************************MENU************************************************************-->
+		<menuitem name="Configuration BPS, MTSS" id="menu_hr_uy_bps_root" parent="menu_lmo_root" sequence="90"/>
+		<menuitem id="menu_bps_main" parent="menu_hr_uy_bps_root" name="BPS" sequence="0"/>
+		<menuitem id="menu_mtss_main" parent="menu_hr_uy_bps_root" name="MTSS" sequence="0"/>
+
+
+
+		<!--********************************SUB-MENU*******************************************************************-->
+		<menuitem action="action_bps_contrib_form" id="action_menu_bps_contrib_form" parent="menu_bps_main" sequence="1" />
+			<record id="hr_uy_bps_contributions_and_taxpayer_type_view" model="ir.ui.view">
+
+			<field name="name">hr.uy.bps.contributions.and.taxpayer.type.form</field>
+			<field name="model">hr.uy.bps.contributions.and.taxpayer.type</field>
+			<field name="arch" type="xml">
+			<form string="Configuraci&#243;n BPS" version="7.0">
+				<sheet>
+					<group>
+			    			<field name="contribution_code"/>
+			    			<field name="description_of_contribution"/>
+			    			<field name="code_type_of_taxpayer"/>
+			    			<field name="description_of_type_of_taxpayer"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+			<record id="view_bps_contributions_and_taxpayer_type_tree" model="ir.ui.view">
+	<!--field string="Aportaciones y tipo de Contribuyente"/-->
+	<field name="name">hr.uy.bps.contributions.and.taxpayer.type.form</field>
+	<field name="model">hr.uy.bps.contributions.and.taxpayer.type</field>
+	<field name="arch" type="xml">
+		<tree string="Tipos de contribuyente">
+			    <field name="contribution_code"/>
+			    <field name="description_of_contribution"/>
+			    <field name="code_type_of_taxpayer"/>
+			    <field name="description_of_type_of_taxpayer"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_type_of_remuneration_form" id="Tipo de Remuneracion" parent="menu_bps_main" sequence="2" />
+			<record id="hr_uy_bps_type_of_remuneration_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.type.of.remuneration.form</field>
+		<field name="model">hr.uy.bps.type.of.remuneration</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="remuneration_code"/>
+					<field name="description_of_remuneration"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_type_of_remuneration_tree" model="ir.ui.view">
+	<!--field string="tipo de remuneracion"/-->
+	<field name="name">hr.uy.bps.type.of.remuneration.form</field>
+	<field name="model">hr.uy.bps.type.of.remuneration</field>
+	<field name="arch" type="xml">
+		<tree string="Tipo de remuneracion">
+			    <field name="remuneration_code"/>
+			    <field name="description_of_remuneration"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_functional_link_form" id="action_menu_bps_functional_link_form" parent="menu_bps_main" sequence="3" />
+			<record id="hr_uy_bps_functional_link_view" model="ir.ui.view">	
+		<field name="name">hr.uy.bps.functional.link.form</field>
+		<field name="model">hr.uy.bps.functional.link</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="functional_code_link"/>
+					<field name="functional_code_description"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_functional_link_tree" model="ir.ui.view">
+	<!--field string="vinculo funcional"/-->
+	<field name="name">hr.uy.bps.functional.link.form</field>
+	<field name="model">hr.uy.bps.functional.link</field>
+	<field name="arch" type="xml">
+		<tree string="Vinculo funcional">
+			    <field name="functional_code_link"/>
+			    <field name="functional_code_description"/>
+		</tree>
+	</field>
+</record>
+
+		<menuitem action="action_bps_country_form" id="action_menu_bps_country_form" parent="menu_bps_main" sequence="4" />
+			<record id="hr_uy_bps_country_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.country.form</field>
+		<field name="model">hr.uy.bps.country</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="country_id"/>
+					<field name="country_code"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_country_tree" model="ir.ui.view">
+	<!--field string="paises"/-->
+	<field name="name">hr.uy.bps.country.form</field>
+	<field name="model">hr.uy.bps.country</field>
+	<field name="arch" type="xml">
+		<tree string="Pais">
+			    <field name="country_id"/>
+				<field name="country_code"/>
+		</tree>
+	</field>
+</record>
+
+		<menuitem action="action_bps_nationality_form" id="action_menu_bps_nationality_form" parent="menu_bps_main" sequence="5" />
+			<record id="hr_uy_bps_nationality_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.nationality.form</field>
+		<field name="model">hr.uy.bps.nationality</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="nationality_code"/>
+					<field name="nationality_description"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_nationality_tree" model="ir.ui.view">
+	<!--field string="nacionalidad"/-->
+	<field name="name">hr.uy.bps.nationality.form</field>
+	<field name="model">hr.uy.bps.nationality</field>
+	<field name="arch" type="xml">
+		<tree string="Nacionalidad">
+			    <field name="nationality_code"/>
+			    <field name="nationality_description"/>
+		</tree>
+	</field>
+</record>
+
+		<menuitem action="action_bps_gender_form" id="action_menu_bps_gender_form" parent="menu_bps_main" sequence="6" />
+			<record id="hr_uy_bps_gender_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.gender.form</field>
+		<field name="model">hr.uy.bps.gender</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="gender"/>
+					<field name="gender_id"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_gender_tree" model="ir.ui.view">
+		<!--field string="sexo"/-->
+		<field name="name">hr.uy.bps.gender.form</field>
+		<field name="model">hr.uy.bps.gender</field>
+		<field name="arch" type="xml">
+			<tree string="Sexo">
+				<field name="gender"/>
+				<field name="gender_id"/>
+			</tree>
+		</field>
+	</record>
+
+		<menuitem action="action_bps_marital_status_form" id="action_menu_bps_marital_status_form" parent="menu_bps_main" sequence="7" />
+			<record id="hr_uy_bps_marital_status_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.marital.status.form</field>
+		<field name="model">hr.uy.bps.marital.status</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="marital_status_code"/>
+					<field name="marital_status_description"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_marital_status_tree" model="ir.ui.view">
+	<!--field string="estado civil"/-->
+	<field name="name">hr.uy.bps.marital.status.form</field>
+	<field name="model">hr.uy.bps.marital.status</field>
+	<field name="arch" type="xml">
+		<tree string="Estado civil">
+			    <field name="marital_status_code"/>
+			    <field name="marital_status_description"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_health_insurance_form" id="action_menu_bps_health_insurance_form" parent="menu_bps_main" sequence="8" />
+			<record id="hr_uy_bps_health_insurance_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.health.insurance.form</field>
+		<field name="model">hr.uy.bps.health.insurance</field>
+		<field name="arch" type="xml">
+			<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="health_insurance_code"/>
+					<field name="health_insurance_description"/>
+				</group>
+			</sheet>
+			</form>
+		</field>
+	</record>
+			<record id="view_bps_health_insurance_tree" model="ir.ui.view">
+	<!--field string="seguro de salud"/-->
+	<field name="name">hr.uy.bps.health.insurance.form</field>
+	<field name="model">hr.uy.bps.health.insurance</field>
+	<field name="arch" type="xml">
+		<tree string="Seguro de salud">
+			    <field name="health_insurance_code"/>
+			    <field name="health_insurance_description"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_termination_form" id="action_menu_bps_termination_form" parent="menu_bps_main" sequence="10" />
+			<record id="hr_uy_bps_termination_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.termination.form</field>
+		<field name="model">hr.uy.bps.termination</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+					<field name="termination_code"/>
+					<field name="termination_description"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_termination_tree" model="ir.ui.view">
+	<!--field string="bajas"/-->
+	<field name="name">hr.uy.bps.termination.form</field>
+	<field name="model">hr.uy.bps.termination</field>
+	<field name="arch" type="xml">
+		<tree string="Codigo de baja">
+			    <field name="termination_code"/>
+			    <field name="termination_description"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_exemption_of_contribution_form" id="action_menu_bps_exemption_of_contribution_form" parent="menu_bps_main" sequence="11" />
+			<record id="hr_uy_bps_exemption_of_contribution_view" model="ir.ui.view">
+		<field name="name">hr.uy.bps.exemption.of.contribution.form</field>
+		<field name="model">hr.uy.bps.exemption.of.contribution</field>
+		<field name="arch" type="xml">
+		<form string="Configuraci&#243;n BPS" version="7.0">
+			<sheet>
+				<group>
+				<field name="exemption_code"/>
+			    <field name="exemption_description"/>
+				</group>
+			</sheet>
+		</form>
+		</field>
+	</record>
+			<record id="view_bps_exemption_of_contribution_tree" model="ir.ui.view">
+		
+	<!--field string="exoneracion de aportes"/-->
+	<field name="name">hr.uy.bps.exemption.of.contribution.form</field>
+	<field name="model">hr.uy.bps.exemption.of.contribution</field>
+	<field name="arch" type="xml">
+		<tree string="Exoneracion de aportes">
+			    <field name="exemption_code"/>
+			    <field name="exemption_description"/>
+		</tree>
+	</field>
+</record>
+
+		<menuitem action="action_bps_special_computing_form" id="action_menu_bps_special_computing_form" parent="menu_bps_main" sequence="11" />
+			<record id="hr_uy_bps_special_computing_view" model="ir.ui.view">
+	<field name="name">hr.uy.bps.special.computing.form</field>
+	<field name="model">hr.uy.bps.special.computing</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+			<group>
+				<field name="computing_code"/>
+				<field name="computing_description"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+			<record id="view_bps_special_computing_tree" model="ir.ui.view">
+	<!--field string="computos especiales"/-->
+	<field name="name">hr.uy.bps.special.computing.form</field>
+	<field name="model">hr.uy.bps.special.computing</field>
+	<field name="arch" type="xml">
+		<tree string="Computos especiales">
+				    <field name="computing_code"/>
+				    <field name="computing_description"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_hours_per_week_form" id="action_menu_bps_hours_per_week_form" parent="menu_bps_main" sequence="13" />
+			<record id="hr_uy_bps_hours_per_week_view" model="ir.ui.view">
+	<field name="name">hr.uy.hours.per.week.form</field>
+	<field name="model">hr.uy.hours.per.week</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+			<group>
+				<field name="hour"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+			<record id="view_bps_hours_per_week_tree" model="ir.ui.view">
+	<!--field string="horas semanales"/-->
+	<field name="name">hr.uy.hours.per.week.form</field>
+	<field name="model">hr.uy.hours.per.week</field>
+	<field name="arch" type="xml">
+		<tree string="Horas semanales">
+				    <field name="hour"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_accumulation_labor_form" id="action_menu_bps_accumulation_labor_form" parent="menu_bps_main" sequence="14" />
+			<record id="hr_uy_bps_accumulation_labor_view" model="ir.ui.view">
+	<field name="name">hr.uy.accumulation.labor.form</field>
+	<field name="model">hr.uy.accumulation.labor</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+			<group>
+				<field name="acumulation_code"/>
+				<field name="acumulation_description"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+			<record id="view_bps_accumulation_labor_tree" model="ir.ui.view">
+	<!--field string="acumulacion laboral"/-->
+	<field name="name">hr.uy.accumulation.labor.form</field>
+	<field name="model">hr.uy.accumulation.labor</field>
+	<field name="arch" type="xml">
+		<tree string="Acumulacion laboral">
+				    <field name="acumulation_code"/>
+				    <field name="acumulation_description"/>
+		</tree>
+	</field>
+</record>
+
+	<menuitem action="action_bps_concep_form" id="action_menu_bps_concep_form" parent="menu_bps_main" sequence="15" />
+		<record id="hr_uy_bps_concept_view" model="ir.ui.view">
+	<field name="name">hr.uy.bps.concept.form</field>
+	<field name="model">hr.uy.bps.concept</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+			<group>
+					<field name="concept_code"/>
+				    <field name="concept_description"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+		<record id="view_bps_concept_tree" model="ir.ui.view">
+	<!--field string="concepto"/-->
+	<field name="name">hr.uy.bps.concept.form</field>
+	<field name="model">hr.uy.bps.concept</field>
+	<field name="arch" type="xml">
+		<tree string="Concepto">
+				    <field name="concept_code"/>
+				    <field name="concept_description"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_category_rural_form" id="action_menu_bps_category_rural_form" parent="menu_bps_main" sequence="16" />
+			<record id="hr_uy_bps_category_rural_view" model="ir.ui.view">
+	<field name="name">hr.uy.bps.category.rural.form</field>
+	<field name="model">hr.uy.bps.category.rural</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+			<group>
+					<field name="worker_code"/>
+					<field name="concept_description"/>
+					<field name="worker_group"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+			<record id="view_bps_category_rural_tree" model="ir.ui.view">
+	<field name="name">hr.uy.bps.category.rural.form</field>
+	<field name="model">hr.uy.bps.category.rural</field>
+	<field name="arch" type="xml">
+		<tree string="Trabajadores rurales">
+			    <field name="worker_code"/>
+			    <field name="concept_description"/>
+			    <field name="worker_group"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_category_construction_form" id="action_menu_bps_category_construction_form" parent="menu_bps_main" sequence="17" />
+			<record id="hr_uy_bps_category_construction_view" model="ir.ui.view">
+	<field name="name">hr.uy.bps.category.construction.form</field>
+	<field name="model">hr.uy.bps.category.construction</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+            <group>
+                <field name="category"/>
+				<field name="code"/>
+				<field name="type_of_income"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+			<record id="view_bps_category_construction_tree" model="ir.ui.view">
+	<field name="name">hr.uy.bps.category.construction.form</field>
+	<field name="model">hr.uy.bps.category.construction</field>
+	<field name="arch" type="xml">
+		<tree string="Trabajadores de la construccion">
+		     <field name="category"/>
+             <field name="code"/>
+             <field name="type_of_income"/>
+        </tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_labor_relations_form" id="action_menu_bps_labor_relations_form" parent="menu_bps_main" sequence="18" />
+		<record id="hr_uy_bps_labor_relations_view" model="ir.ui.view">
+	<field name="name">hr.uy.bps.labor.relations.form</field>
+	<field name="model">hr.uy.bps.labor.relations</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+			<group>
+					<field name="code_of_labor_relation"/>
+				    <field name="description_of_labor_relation"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+		<record id="view_bps_labor_relations_tree" model="ir.ui.view">
+	<!--field string="relaciones laborales"/-->
+	<field name="name">hr.uy.bps.labor.relations.form</field>
+	<field name="model">hr.uy.bps.labor.relations</field>
+	<field name="arch" type="xml">
+		<tree string="Relaciones laborales">
+				    <field name="code_of_labor_relation"/>
+				    <field name="description_of_labor_relation"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_bps_legal_nature_form" id="action_menu_bps_legal_nature_form" parent="menu_bps_main" sequence="19" />
+			<record id="hr_uy_bps_legal_nature_view" model="ir.ui.view">
+	<field name="name">hr.uy.bps.legal.nature.form</field>
+	<field name="model">hr.uy.bps.legal.nature</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n BPS" version="7.0">
+		<sheet>
+			<group>
+					<field name="code_of_legal_nature"/>
+				    <field name="description_of_legal_nature"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+			<record id="view_bps_legal_nature_tree" model="ir.ui.view">
+	<field name="name">hr.uy.bps.legal.nature.form</field>
+	<field name="model">hr.uy.bps.legal.nature</field>
+	<field name="arch" type="xml">
+		<tree string="Naturaleza Juridica">
+				    <field name="code_of_legal_nature"/>
+				    <field name="description_of_legal_nature"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_mtss_working_groups_form" id="action_menu_mtss_working_groups_form" parent="menu_mtss_main" sequence="20" />
+			<record id="hr_uy_mtss_working_groups_view" model="ir.ui.view">
+	<field name="name">hr.uy.mtss.working.groups.form</field>
+	<field name="model">hr.uy.mtss.working.groups</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n MTSS" version="7.0">
+		<sheet>
+			<group>
+					<field name="group"/>
+				    <field name="description"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+		<record id="view_mtss_working_groups_tree" model="ir.ui.view">
+	<!--field string="grupos de trabajo"/-->
+	<field name="name">hr.uy.mtss.working.groups.form</field>
+	<field name="model">hr.uy.mtss.working.groups</field>
+	<field name="arch" type="xml">
+		<tree string="Grupos de trabajo">
+				    <field name="group"/>
+				    <field name="description"/>
+		</tree>
+	</field>
+</record>
+
+
+		<menuitem action="action_mtss_working_subgroups_form" id="action_menu_mtss_working_subgroups_form" parent="menu_mtss_main" sequence="21" />
+			<record id="hr_uy_mtss_working_subgroups_view" model="ir.ui.view">
+	<!--field string="subgrupos de trabajo"/-->
+	<field name="name">hr.uy.mtss.working.subgroups.form</field>
+	<field name="model">hr.uy.mtss.working.subgroups</field>
+	<field name="arch" type="xml">
+	<form string="Configuraci&#243;n MTSS" version="7.0">
+		<sheet>
+			<group>
+					<field name="subgroup"/>
+				    <field name="group"/>
+				    <field name="description"/>
+			</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+			<record id="view_mtss_working_subgroups_tree" model="ir.ui.view">
+	<!--field string="subgrupos de trabajo"/-->
+	<field name="name">hr.uy.mtss.working.subgroups.form</field>
+	<field name="model">hr.uy.mtss.working.subgroups</field>
+	<field name="arch" type="xml">
+		<tree string="Subgrupos de trabajo">
+				    <field name="subgroup"/>
+				    <field name="group"/>
+				    <field name="description"/>
+		</tree>
+	</field>
+</record>
+			<!--menuitem action="action_hr_uy_document_type_form" id="Document type" parent="menu_bps_main" sequence="22"/-->
+			<!--record id="view_hr_uy_document_type_tree" model="ir.ui.view">
+	<field string="Type of document"/>
+	<field name="name">hr.uy.document.type.form</field>
+	<field name="model">hr.uy.document.type</field>
+	<field name="arch" type="xml">
+		<tree string="Document type">
+			<field name="document_id"/>
+			<field name="document_description"/>
+		</tree>
+	</field>
+</record-->
+
+
+</data>
+</openerp>
