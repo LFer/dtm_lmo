@@ -111,8 +111,8 @@
         
         	
 	
-	<menuitem name="Prueba" id="menu_mo_root" sequence="90"/>
-	<menuitem id="menu_lmo_fixed_assets_main" parent="menu_mo_root" name="Liquidations" sequence="0"/>
+	<!--menuitem name="Prueba" id="menu_mo_root" sequence="90"/-->
+	<menuitem id="menu_lmo_fixed_assets_main" parent="menu_lmo_root" name="Liquidations" sequence="0"/>
 	<menuitem action="action_lmo_fix_form" id="assets_and_deductions_fixed_menuitem" parent="menu_lmo_fixed_assets_main" sequence="1" />
 	<menuitem action="action_lmo_new_form" id="fixed_credits_and_deductions_menuitem" parent="menu_lmo_fixed_assets_main" sequence="2"/>
 

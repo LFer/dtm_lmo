@@ -48,15 +48,15 @@ class lmo_payroll_code(osv.osv):
 	    	if not description:
 			description = 'No descr'
 
-                res.append((record['id'],u'' + record['payroll_id'][1] + u' - ' + str(record['pcode_id']) + u' - ' + description))
+                #res.append((record['id'],u'' + record['payroll_id'][1] + u' - ' + str(record['pcode_id']) + u' - ' + description))
             return res
 	_sql_constraints=[('codigo_unico','unique(pcode_id,payroll_id)',"It is not possible to have two codes with the same identifier number on the same liquidation.")]
 
-	#VALID_RECEIPT_TYPES = set(map(lambda x: chr(x),range(ord('A'),ord('Z')+1)))-{'C','T','P'}
+	pcode_receipt_type = set(map(lambda x: chr(x),range(ord('A'),ord('Z')+1)))-{'C','T','P'}
 	def _receipt_type_constraint(self,cr,uid,ids,context=None):
 		records = self.browse(cr,uid,ids,context=context)
 		for record in records:
-			return record['pcode_receipt_type'] in  self.VALID_RECEIPT_TYPES
+			return record['pcode_receipt_type'] in  self.pcode_receipt_type
 
 	_constraints=[(_receipt_type_constraint,'Receipt type must be a capitalized letter distinct from C, T and P',['pcode_receipt_type'])]
 lmo_payroll_code()
