@@ -19,11 +19,14 @@
 		<field name="model">lmo.fix</field>
 		<field name="arch" type="xml">
 			<tree string="Fixed credits and deductions">
+				<field name="payroll_id"/>
 				<field name="employee_id"/>
 				<field name="code_id"/>
 				<field name="section_id"/>
 				<field name="aadfixed_unit"/>
-				<field name="aadfixed_datetime"/>
+				<field name="aadfixed_day"/>
+				<field name="aadfixed_hour"/>
+				<field name="aadfixed_minit"/>
 				<field name="aadfixed_unit_amount"/>
 				<field name="aadfixed_total_amount"/>
 			</tree>
@@ -37,18 +40,21 @@
 		<field name="arch" type="xml">
 			<form string="Fixed credits and deductions" version="7.0">
 				<sheet>
-					<group colspan="2">
+					<group>
+						<field name="payroll_id"/>
 						<field name="employee_id"/>
 						<field name="code_id"/>
 						<field name="section_id"/>
 						<field name="aadfixed_unit"/>
-						<field name="aadfixed_datetime"/>
 						<field name="aadfixed_unit_amount"/>
+						<field name="aadfixed_day"/>
+						<field name="aadfixed_hour"/>
+						<field name="aadfixed_minit"/>
 						<field name="aadfixed_total_amount"/>
-					</group>
-				</sheet>
-			</form>
-		</field>	
+				</group>
+			</sheet>
+		</form>
+	</field>	
 	</record>
     
     
@@ -77,7 +83,9 @@
 				<field name="aadnews_place_of_payment"/>
 				<field name="code_id"/>
 				<field name="aadnews_unit"/>
-                <field name="aadnews_datetime"/>
+				<field name="aadfixed_day"/>
+				<field name="aadfixed_hour"/>
+				<field name="aadfixed_minit"/>
 				<field name="aadnews_unit_amount"/>
 				<field name="aadnews_total_amount"/>
              </tree>
@@ -98,7 +106,9 @@
 						<field name="aadnews_place_of_payment"/>
 						<field name="code_id"/>
 						<field name="aadnews_unit"/>
-						<field name="aadnews_datetime"/>
+						<field name="aadfixed_day"/>
+						<field name="aadfixed_hour"/>
+						<field name="aadfixed_minit"/>
 						<field name="aadnews_unit_amount"/>
 						<field name="aadnews_total_amount"/>
 					</group>

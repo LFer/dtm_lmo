@@ -128,7 +128,7 @@
                 <form string="Liquidation" version="7.0">
                     <sheet>
 		    	<notebook>
-				<page string="Liquidation daata">
+				<page string="Liquidation data">
 					<group col="4" colspan="3">
 						<field name="payroll_id"/>
 						<field name="payroll_date"/>
@@ -196,6 +196,7 @@
 		   <notebook>
 		    <page string="General info">
                         <group>
+                            <field name="payroll_id"/>
                             <field name="pcode_id"/>
                             <field name="pcode_description"/>
                             <field name="pcode_short_descr"/>
@@ -203,7 +204,6 @@
                             <field name="pcode_unit_type"/>
                             <field name="pcode_autogen"/>
                             <field name="pcode_movement_type"/>
-                            <field name="pcode_receipt_type"/>
                         </group>
 		    </page>
 		    <page string="Bases">
@@ -238,7 +238,6 @@
 			<field name="pcode_unit_type"/>
 			<field name="pcode_autogen"/>
 			<field name="pcode_movement_type"/>
-			<field name="pcode_receipt_type"/>
                 </tree>
             </field>
         </record>
