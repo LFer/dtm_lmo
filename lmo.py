@@ -25,13 +25,13 @@ class lmo_payroll_code(osv.osv):
     _name="lmo.payroll.code"
     _columns={
         'pcode_id':fields.integer('Code',size=225,required=True),
-        'payroll_id':fields.many2one('lmo.payroll.dictionary','Associated liquidation'),
+        'payroll_id':fields.many2one('lmo.payroll.dictionary','Assoc. liquidation'),
         'pcode_description':fields.char('Description',size=50),
-        'pcode_short_descr':fields.char('Short description', size=15),
+        'pcode_short_descr':fields.char('Short desc.', size=15),
         'pcode_credit_or_debit':fields.selection((('H','Credit'),('R','Retention')),'Credit/Retention',required=True),
         'pcode_unit_type':fields.selection((('I','Amount'),('%','Percentage'),('U','Unit'),('T','Days/hours/minutes'),('R','Retroactive')),'Unit',required=True),
         'pcode_autogen':fields.selection((('G','From fixed credits and retentions'),('N','Not generated from credits and retentions')),'Automatic code',required=True),
-        'pcode_movement_type':fields.selection((('S','Salary'),('J',"Day's wages"),('C','Common movement')),'Movement Type',required=True),
+        'pcode_movement_type':fields.selection((('S','Salary'),('J',"Day's wages"),('C','Common movement')),'Movement type',required=True),
         #'pcode_receipt_type':fields.char('Line type', size=1,required=True),
         'pcode_bases':fields.one2many('lmo.payroll.code.basis','pcode_id','Associated base'),
         'pcode_taxbases':fields.one2many('lmo.payroll.code.taxbase','pcode_id','Associated tax bases'),
@@ -50,7 +50,7 @@ class lmo_payroll_code(osv.osv):
 
                 res.append((record['id'],u'' + u' - ' + str(record['pcode_id']) + u' - ' + description))
             return res
-    _sql_constraints=[('codigo_unico','unique(pcode_id,payroll_id)',"It is not possible to have two codes with the same identifier number on the same liquidation.")]
+    _sql_constraints=[('unique_code','unique(pcode_id,payroll_id)',"It is not possible to have two codes with the same identifier number on the same liquidation.")]
 
 lmo_payroll_code()
 
@@ -60,19 +60,21 @@ class payroll_dictionary(osv.osv):
     def name_get(self, cr, uid, ids, context=None):
         if not ids:
             return []
-        reads = self.read(cr, uid, ids, ['payroll_date','company_id'], context=context)
+        #import pdb
+        #pdb.set_trace()
+        reads = self.read(cr, uid, ids, [str('payroll_id'),'payroll_date','company_id'], context=context)
         res = []
         for record in reads:
-            res.append((record['id'],'Liquidation: ' + record['company_id'][1] + ' - ' + record['payroll_date']))
+            res.append((record['id'], 'Liquidation: ' + str(record['payroll_id']) + '-' + record['company_id'][1] + ' - ' + record['payroll_date']))
         return res
     _columns={
         'payroll_currency':fields.many2one('lmo.currency', 'Currency'),
-        'company_id':fields.many2one('res.company','Associated Company',required=True),
-        'payroll_code':fields.one2many('lmo.payroll.code','payroll_id','Associated codes'),
-        'payroll_id':fields.integer('Liquidation identifier',size=5,required=True),
+        'company_id':fields.many2one('res.company','Assoc. company',required=True),
+        'payroll_code':fields.one2many('lmo.payroll.code','payroll_id','Assoc. codes'),
+        'payroll_id':fields.integer('Liquidation id',size=5,required=True),
         'payroll_date':fields.date('Date',required=True),
-        'payroll_description':fields.char('Liquidation description',size=30,required=True),
-        'payroll_particular':fields.selection((('T','Total'),('P','Particular')),'Particular Liquidacion',required=True),
+        'payroll_description':fields.char('Liquidation desc.',size=30,required=True),
+        'payroll_particular':fields.selection((('T','Total'),('P','Particular')),'Particular liquidation',required=True),
         'payroll_group':fields.selection((('T','Total'),('G','Employee group')),'Liquidation by groups',required=True),
         'payroll_code_type':fields.selection((('T','Total'),('C','Code group')),'Liquidation by code',required=True)
 
@@ -94,7 +96,8 @@ class code_basis(osv.osv):
         'basis_cap':fields.float('Minimum',digits=(11,4),required=True),
         'basis_day':fields.float('Basis day',digits=(11,4),required=True),
         'basis_hour':fields.float('Basis hour',digits=(11,4),required=True),
-        'basis_computation_type':fields.selection((('+','Addition'),('-','Substraction'),('*','Multiplication'),('/','Division')),'Computation type',required=True)
+        'basis_computation_type':fields.selection((('+','Addition'),('-','Substraction'),('*','Multiplication'),('/','Division')),'Computation type',required=True),
+        'help':fields.text('Desc', help="There is some help", required=True, readonly=True),
     }
 
 code_basis()
@@ -103,7 +106,7 @@ class tax_base(osv.osv):
     _description="Taxbase"
     _name="lmo.payroll.code.taxbase"
     _columns={
-        'pcode_id':fields.many2one('lmo.payroll.code','associated code'),
+        'pcode_id':fields.many2one('lmo.payroll.code','Associated code'),
         'taxbase_id':fields.integer('Taxbase identifier',size=5,required=True),
         'taxbase_percentage':fields.float('Percentage',digits=(3,2),required=True)
     }

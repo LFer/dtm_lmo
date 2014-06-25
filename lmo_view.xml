@@ -1,84 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-	<record id="action_lmo_account_form" model="ir.actions.act_window">
-		<field name="name">Account</field>
-		<field name="res_model">lmo.account</field>
-		<field name="view_type">form</field>
-		<field name="view_mode">tree,form</field>
-	</record>
-	
-		<record id="lmo_account_view" model="ir.ui.view">
-		<field name="name">lmo.account.tree</field>
-		<field name="model">lmo.account</field>
-		<field name="arch" type="xml">
-		<form string="Liquidations" version="7.0">
-			<sheet>
-				<group>
-				<field name="liquidation_id"/>
-				<field name="code_id"/>
-				<field name="active_inactive"/>
-				<field name="employee_id"/>
-				<field name="account_planning"/>
-				<field name="credit_debit"/>
-				</group>
-			</sheet>
-		</form>
-		</field>
-		</record>
-		
-		<record id="view_lmo_account_tree" model="ir.ui.view">
-		<field name="name">lmo.account.tree</field>
-		<field name="model">lmo.account</field>
-		<field name="arch" type="xml">
-			<tree string="LMO Accounting">
-				<field name="liquidation_id"/>
-				<field name="code_id"/>
-				<field name="active_inactive"/>
-				<field name="employee_id"/>
-				<field name="account_planning"/>
-				<field name="credit_debit"/>
-			</tree>
-		</field>
-	</record>
-
-
-	<record id="view_lmo_account" model="ir.ui.view">
-		<field name="name">lmo.account.form</field>
-		<field name="model">lmo.account</field>
-		<field name="arch" type="xml">
-			<form string="LMO Accounting">
-				<field name="liquidation_id"/>
-				<field name="accounting_records_id"/>
-				<field name="code_id"/>
-				<field name="active_inactive"/>
-				<field name="department_id"/>
-				<field name="section_id"/>
-				<field name="local_id"/>
-				<field name="mtss_id"/>
-				<field name="mj_id"/>
-				<field name="employee_id"/>
-				<field name="account_planning"/>
-				<field name="concept_id"/>
-				<field name="percentage_id"/>
-				<field name="credit_debit"/>
-			</form>
-		</field>
-	</record>
-
-	<record id="lmo_employee_view" model="ir.ui.view" >
-	<field name="name">hr.employee.form.inherit</field>
-	<field name="model">hr.employee</field>
-	<field name="inherit_id" ref="hr_uy.hr_employee_view"/>
-	<field name="arch" type="xml">
-	<data>
-		<field name='account_bank' position='after'>
-			<field name='account_currency_id'/>
-		</field>
-	</data>
-	</field>
-	</record>
-        <record id="view_payroll_dictionary_search" model="ir.ui.view">
+      <record id="action_lmo_account_form" model="ir.actions.act_window">
+         <field name="name">Account</field>
+         <field name="res_model">lmo.account</field>
+         <field name="view_type">form</field>
+         <field name="view_mode">tree,form</field>
+      </record>
+      
+      <record id="lmo_account_view" model="ir.ui.view">
+        <field name="name">lmo.account.tree</field>
+        <field name="model">lmo.account</field>
+        <field name="arch" type="xml">
+            <form string="Liquidations" version="7.0">
+                <sheet>
+                    <group>
+                        <field name="liquidation_id"/>
+                        <field name="code_id"/>
+                        <field name="active_inactive"/>
+                        <field name="employee_id"/>
+                        <field name="account_planning"/>
+                        <field name="credit_debit"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+      
+      <record id="view_lmo_account_tree" model="ir.ui.view">
+        <field name="name">lmo.account.tree</field>
+        <field name="model">lmo.account</field>
+        <field name="arch" type="xml">
+            <tree string="LMO Accounting">
+                <field name="liquidation_id"/>
+                <field name="code_id"/>
+                <field name="active_inactive"/>
+                <field name="employee_id"/>
+                <field name="account_planning"/>
+                <field name="credit_debit"/>
+            </tree>
+        </field>
+      </record>
+      
+      <record id="view_lmo_account" model="ir.ui.view">
+        <field name="name">lmo.account.form</field>
+        <field name="model">lmo.account</field>
+        <field name="arch" type="xml">
+            <form string="LMO Accounting">
+                <field name="liquidation_id"/>
+                <field name="accounting_records_id"/>
+                <field name="code_id"/>
+                <field name="active_inactive"/>
+                <field name="department_id"/>
+                <field name="section_id"/>
+                <field name="local_id"/>
+                <field name="mtss_id"/>
+                <field name="mj_id"/>
+                <field name="employee_id"/>
+                <field name="account_planning"/>
+                <field name="concept_id"/>
+                <field name="percentage_id"/>
+                <field name="credit_debit"/>
+            </form>
+        </field>
+      </record>
+      
+      <record id="lmo_employee_view" model="ir.ui.view" >
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_uy.hr_employee_view"/>
+        <field name="arch" type="xml">
+            <data>
+                <field name='account_bank' position='after'>
+                <field name='account_currency_id'/>
+                </field>
+            </data>
+        </field>
+      </record>
+      
+      <record id="view_payroll_dictionary_search" model="ir.ui.view">
             <field name="name">lmo.payroll_dictionary.search</field>
             <field name="model">lmo.payroll.dictionary</field>
             <field name="arch" type="xml">
@@ -88,6 +88,7 @@
                 </search>
             </field>
         </record>
+        
         <record id="action_payroll_dictionary_form" model="ir.actions.act_window">
             <field name="name">Liquidations</field>
             <field name="res_model">lmo.payroll.dictionary</field>
@@ -95,6 +96,7 @@
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="view_payroll_dictionary_search"/>
         </record>
+        
         <record id="view_lmo_code_search" model="ir.ui.view">
             <field name="name">lmo.payroll.code.search</field>
             <field name="model">lmo.payroll.code</field>
@@ -105,7 +107,7 @@
                 </search>
             </field>
         </record>
-
+        
         <record id="action_lmo_code_form" model="ir.actions.act_window">
             <field name="name">Codes</field>
             <field name="res_model">lmo.payroll.code</field>
@@ -113,39 +115,39 @@
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="view_lmo_code_search"/>
         </record>
-
-	<menuitem name="Payroll liquidations" id="menu_lmo_root" sequence="90"/>
-	<menuitem id="menu_lmo_main" parent="menu_lmo_root" name="Payroll Liquidations" sequence="0"/>
-	<menuitem id="menu_lmo_config" parent="menu_lmo_root" name="Configuration" sequence="90"/>
-	<menuitem id="menu_lmo_configuration" name="Configuration" parent="lmo.menu_lmo_root" sequence="50"/>
-	<menuitem id="menu_lmo_payroll_rules" name="Liquidation rules" parent="lmo.menu_lmo_root" sequence="50"/>
-	<menuitem id="menu_lmo_account" name="Accouting" parent="menu_lmo_payroll_rules" sequence="50" action="action_lmo_account_form"/>
-	<menuitem action="action_payroll_dictionary_form" id="menu_action_payroll_dictionary_form" parent="lmo.menu_lmo_payroll_rules" sequence="3" />
+        
+    <menuitem name="Payroll liquidations" id="menu_lmo_root" sequence="90"/>
+    <menuitem id="menu_lmo_main" parent="menu_lmo_root" name="Payroll Liquidations" sequence="0"/>
+    <menuitem id="menu_lmo_config" parent="menu_lmo_root" name="Configuration" sequence="90"/>
+    <menuitem id="menu_lmo_configuration" name="Configuration" parent="lmo.menu_lmo_root" sequence="50"/>
+    <menuitem id="menu_lmo_payroll_rules" name="Liquidation rules" parent="lmo.menu_lmo_root" sequence="50"/>
+    <menuitem id="menu_lmo_account" name="Accouting" parent="menu_lmo_payroll_rules" sequence="50" action="action_lmo_account_form"/>
+    <menuitem action="action_payroll_dictionary_form" id="menu_action_payroll_dictionary_form" parent="lmo.menu_lmo_payroll_rules" sequence="3" />
         <record id="view_payroll_dictionary_form" model="ir.ui.view">
             <field name="name">lmo.payroll.dictionary.form</field>
             <field name="model">lmo.payroll.dictionary</field>
             <field name="arch" type="xml">
                 <form string="Liquidation" version="7.0">
                     <sheet>
-		    	<notebook>
-				<page string="Liquidation data">
-					<group col="4" colspan="3">
-						<field name="payroll_id"/>
-						<field name="payroll_date"/>
-						<field name="company_id"/>
-						<field name="payroll_description"/>
-						<field name="payroll_particular"/>
-						<field name="payroll_group"/>
-						<field name="payroll_code_type"/>
-						<field name="payroll_currency"/>
-					</group>
-				</page>
-				<page string="Associated codes">
-					<group>
-						<field nolabel='1' name="payroll_code"/>
-					</group>
-				</page>
-			</notebook>
+                <notebook>
+                <page string="Liquidation data">
+                    <group col="4" colspan="3">
+                        <field name="payroll_id"/>
+                        <field name="payroll_date"/>
+                        <field name="company_id"/>
+                        <field name="payroll_description"/>
+                        <field name="payroll_particular"/>
+                        <field name="payroll_group"/>
+                        <field name="payroll_code_type"/>
+                        <field name="payroll_currency"/>
+                    </group>
+                </page>
+                <page string="Associated codes">
+                    <group>
+                        <field nolabel='1' name="payroll_code"/>
+                    </group>
+                </page>
+            </notebook>
                     </sheet>
                 </form>
             </field>
@@ -157,8 +159,8 @@
             <field name="arch" type="xml">
                 <tree string="Liquidation">
                   <field name="payroll_id"/>
-		  <field name="payroll_date"/>
-		  <field name="company_id"/>
+          <field name="payroll_date"/>
+          <field name="company_id"/>
                   <field name="payroll_description"/>
                   <field name="payroll_particular"/>
                   <field name="payroll_group"/>
@@ -171,57 +173,58 @@
 
 
        
-	<record id="lmo_company_view" model="ir.ui.view" >
-		<field name="name">res.company.form.inherit</field>
-		<field name="model">res.company</field>
-		<field name="inherit_id" ref="base.view_company_form"/>
-		<field name="arch" type="xml">
-		<data>
-			<notebook>
-				<page string="Liquidations">
-					<group>
-						<field name='payroll_ids'/>
-					</group>
-				</page>
-			</notebook>
-		</data>
-		</field>
-	</record>
+    <record id="lmo_company_view" model="ir.ui.view" >
+        <field name="name">res.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+        <data>
+            <notebook>
+                <page string="Liquidations">
+                    <group>
+                        <field name='payroll_ids'/>
+                    </group>
+                </page>
+            </notebook>
+        </data>
+        </field>
+    </record>
 
         <record id="view_lmo_code_form" model="ir.ui.view">
             <field name="name">lmo.payroll.code.form</field>
             <field name="model">lmo.payroll.code</field>
             <field name="arch" type="xml">
-                <form string="Codes" version="7.0">
-		   <notebook>
-		    <page string="General info">
-                        <group>
-                            <field name="payroll_id"/>
-                            <field name="pcode_id"/>
-                            <field name="pcode_description"/>
-                            <field name="pcode_short_descr"/>
-                            <field name="pcode_credit_or_debit"/>
-                            <field name="pcode_unit_type"/>
-                            <field name="pcode_autogen"/>
-                            <field name="pcode_movement_type"/>
-                        </group>
-		    </page>
-		    <page string="Bases">
-                        <group>
-		    		<field nolabel="1" name="pcode_bases"/>
-                        </group>
-		    </page>
-		    <page string="Taxbases">
-                        <group>
-		    		<field nolabel="1" name="pcode_taxbases"/>
-                        </group>
-		    </page>
-		    <page string="Tax applications">
-                        <group>
-		    		<field nolabel="1" name="pcode_taxapplications"/>
-                        </group>
-		    </page>
-		   </notebook>
+				<form string="Codes" version="7.0">
+					<notebook>
+						<page string="Taxbases">
+							<group>
+								<field nolabel="1" name="pcode_taxbases"/>
+							</group>
+						</page>
+   
+						<page string="General info">
+							<group>
+								<field name="payroll_id"/>
+								<field name="pcode_id"/>
+								<field name="pcode_description"/>
+								<field name="pcode_short_descr"/>
+								<field name="pcode_credit_or_debit"/>
+								<field name="pcode_unit_type"/>
+								<field name="pcode_autogen"/>
+								<field name="pcode_movement_type"/>
+							</group>
+						</page>
+						<page string="Calculation base">
+							<group>
+								<field nolabel="1" name="pcode_bases"/>
+							</group>
+						</page>
+						<page string="Percentage applications">
+							<group>
+								<field nolabel="1" name="pcode_taxapplications"/>
+							</group>
+						</page>
+					</notebook>
                 </form>
             </field>
         </record>
@@ -231,13 +234,13 @@
             <field name="model">lmo.payroll.code</field>
             <field name="arch" type="xml">
                 <tree string="Liquidation Codes">
-			<field name="payroll_id"/>
-			<field name="pcode_id"/>
-			<field name="pcode_short_descr"/>
-			<field name="pcode_credit_or_debit"/>
-			<field name="pcode_unit_type"/>
-			<field name="pcode_autogen"/>
-			<field name="pcode_movement_type"/>
+            <field name="payroll_id"/>
+            <field name="pcode_id"/>
+            <field name="pcode_short_descr"/>
+            <field name="pcode_credit_or_debit"/>
+            <field name="pcode_unit_type"/>
+            <field name="pcode_autogen"/>
+            <field name="pcode_movement_type"/>
                 </tree>
             </field>
         </record>
@@ -249,15 +252,16 @@
                 <form string="Code basis" version="7.0">
                     <sheet>
                         <group>
-			    <field name="basis_tariff"/>
-			    <field name="basis_unit_value"/>
-			    <field name="basis_minimum"/>
-			    <field name="basis_exceeds"/>
-			    <field name="basis_cap"/>
-			    <field name="basis_day"/>
-			    <field name="basis_hour"/>
-			    <field name="basis_computation_type"/>
-                        </group>
+				<field name="help"/>			
+                <field name="basis_tariff"/>
+                <field name="basis_unit_value"/>
+                <field name="basis_minimum"/>
+                <field name="basis_exceeds"/>
+                <field name="basis_cap"/>
+                <field name="basis_day"/>
+                <field name="basis_hour"/>
+                <field name="basis_computation_type"/>
+                       </group>
                     </sheet>
                 </form>
             </field>
@@ -268,14 +272,14 @@
             <field name="model">lmo.payroll.code.basis</field>
             <field name="arch" type="xml">
                 <tree string="Computation basis">
-			    <field name="basis_tariff"/>
-			    <field name="basis_unit_value"/>
-			    <field name="basis_minimum"/>
-			    <field name="basis_exceeds"/>
-			    <field name="basis_cap"/>
-			    <field name="basis_day"/>
-			    <field name="basis_hour"/>
-			    <field name="basis_computation_type"/>
+                <field name="basis_tariff"/>
+                <field name="basis_unit_value"/>
+                <field name="basis_minimum"/>
+                <field name="basis_exceeds"/>
+                <field name="basis_cap"/>
+                <field name="basis_day"/>
+                <field name="basis_hour"/>
+                <field name="basis_computation_type"/>
                 </tree>
             </field>
         </record>
@@ -288,8 +292,8 @@
                 <form string="Code basis" version="7.0">
                     <sheet>
                         <group>
-			    <field name="taxbase_id"/>
-			    <field name="taxbase_percentage"/>
+                <field name="taxbase_id"/>
+                <field name="taxbase_percentage"/>
                         </group>
                     </sheet>
                 </form>
@@ -301,8 +305,8 @@
             <field name="model">lmo.payroll.code.taxbase</field>
             <field name="arch" type="xml">
                 <tree string="Computation basis">
-			    <field name="taxbase_id"/>
-			    <field name="taxbase_percentage"/>
+                <field name="taxbase_id"/>
+                <field name="taxbase_percentage"/>
                 </tree>
             </field>
         </record>
@@ -313,13 +317,13 @@
                 <form string="Code basis" version="7.0">
                     <sheet>
                         <group>
-			    <field name="application_line"/>
-			    <field name="application_amount_from"/>
-			    <field name="application_amount_upto"/>
-			    <field name="application_employee_contrib"/>
-			    <field name="application_employer_contrib"/>
-			    <field name="application_amount_cap"/>
-			    <field name="application_progressive"/>
+                <field name="application_line"/>
+                <field name="application_amount_from"/>
+                <field name="application_amount_upto"/>
+                <field name="application_employee_contrib"/>
+                <field name="application_employer_contrib"/>
+                <field name="application_amount_cap"/>
+                <field name="application_progressive"/>
                         </group>
                     </sheet>
                 </form>
@@ -331,13 +335,13 @@
             <field name="model">lmo.payroll.code.taxapplication</field>
             <field name="arch" type="xml">
                 <tree string="Compute basis">
-			    <field name="application_line"/>
-			    <field name="application_amount_from"/>
-			    <field name="application_amount_upto"/>
-			    <field name="application_employee_contrib"/>
-			    <field name="application_employer_contrib"/>
-			    <field name="application_amount_cap"/>
-			    <field name="application_progressive"/>
+                <field name="application_line"/>
+                <field name="application_amount_from"/>
+                <field name="application_amount_upto"/>
+                <field name="application_employee_contrib"/>
+                <field name="application_employer_contrib"/>
+                <field name="application_amount_cap"/>
+                <field name="application_progressive"/>
                 </tree>
             </field>
         </record>
