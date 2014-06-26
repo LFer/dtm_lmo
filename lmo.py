@@ -89,15 +89,15 @@ class code_basis(osv.osv):
     _name="lmo.payroll.code.basis"
     _columns={
         'pcode_id':fields.many2one('lmo.payroll.code','Associated code'),
-        'basis_tariff':fields.float('Tariff',digits=(11,4),required=True),
-        'basis_unit_value':fields.float('Unit value',digits=(11,4),required=True),
-        'basis_minimum':fields.float('Minimum',digits=(11,4),required=True),
-        'basis_exceeds':fields.float('Exceeds',digits=(11,4),required=True),
-        'basis_cap':fields.float('Minimum',digits=(11,4),required=True),
-        'basis_day':fields.float('Basis day',digits=(11,4),required=True),
-        'basis_hour':fields.float('Basis hour',digits=(11,4),required=True),
-        'basis_computation_type':fields.selection((('+','Addition'),('-','Substraction'),('*','Multiplication'),('/','Division')),'Computation type',required=True),
-        'help':fields.text('Desc', help="There is some help", required=True, readonly=True),
+        'basis_tariff':fields.float('Tariff',digits=(11,4)),
+        'basis_unit_value':fields.float('Unit value',digits=(11,4)),
+        'basis_minimum':fields.float('Minimum',digits=(11,4)),
+        'basis_exceeds':fields.float('Exceeds',digits=(11,4)),
+        'basis_cap':fields.float('Minimum',digits=(11,4)),
+        'basis_day':fields.float('Basis day',digits=(11,4)),
+        'basis_hour':fields.float('Basis hour',digits=(11,4)),
+        'basis_computation_type':fields.selection((('+','Addition'),('-','Substraction'),('*','Multiplication'),('/','Division')),'Computation type'),
+        'help':fields.text('Desc', help="Se deben ingresar los datos necesarios para calcular los codigos en tiempo y unidades", required=True, readonly=True),
     }
 
 code_basis()
@@ -125,43 +125,64 @@ class tax_application(osv.osv):
         'application_progressive':fields.selection((('O','Progressive'),('L','Progressional')),'Progressive/Progressional',required=True)
     }
 
-class lmo_fix(osv.osv):
+class lmo_credits_and_deductions_fixed(osv.osv):
     _description="Fixed credits and deductions"
-    _name= "lmo.fix"
+    _name= "lmo.credits.and.deductions.fixed"
     _columns= {
         'payroll_id':fields.many2one('lmo.payroll.dictionary', 'Liquidation', size=5, required=True),
         'employee_id':fields.many2one('hr.employee', 'Employee', size=10, required=True),
         'section_id':fields.many2one('hr.section','Section', required=True),
         'code_id':fields.many2one('lmo.payroll.code','Code',required=True),
-        'aadfixed_place_of_payment':fields.char('Place of payment', required=True),
-        'aadfixed_unit':fields.integer('Units',size=5),
-        'aadfixed_day':fields.float('Days'),
-        'aadfixed_hour':fields.float('Hours'),
-        'aadfixed_minit':fields.integer('Minutes',),
-        'aadfixed_unit_amount':fields.float('Unit amount',digits=(15,2)),
-        'aadfixed_total_amount':fields.float('Total amount',digits=(15,2)),
+        'place_of_payment':fields.char('Place of payment', required=True),
+        'unit':fields.integer('Units',size=5),
+        'day':fields.float('Days'),
+        'hour':fields.float('Hours'),
+        'minit':fields.integer('Minutes',),
+        'unit_amount':fields.float('Unit amount',digits=(15,2)),
+        'total_amount':fields.float('Total amount',digits=(15,2)),
     }
 
-lmo_fix()
+lmo_credits_and_deductions_fixed()
 
-class lmo_new(osv.osv):
+class lmo_credits_and_deductions_news(osv.osv):
     _description="Variable credits and deductions"
-    _name="lmo.new"
+    _name="lmo.credits.and.deductions.news"
     _columns={
         'payroll_id':fields.many2one('lmo.payroll.dictionary', 'Liquidation', size=5, required=True),
         'employee_id':fields.many2one('hr.employee', 'Employee', size=10, required=True),
         'section_id':fields.many2one('hr.section','Section', required=True),
-        'aadnews_place_of_payment':fields.char('Place of payment'),
+        'place_of_payment':fields.char('Place of payment'),
         'code_id':fields.many2one('lmo.payroll.code','Code', required=True),
-        'aadnews_unit':fields.integer('Units',size=5),
-        'aadfixed_day':fields.float('Days'),
-        'aadfixed_hour':fields.float('Hours'),
-        'aadfixed_minit':fields.integer('Minutes'),
-        'aadnews_unit_amount':fields.float('Unit amount',digits=(15,2)),
-        'aadnews_total_amount':fields.float('Total amount',digits=(15,2)),
+        'unit':fields.integer('Units',size=5),
+        'day':fields.float('Days'),
+        'hour':fields.float('Hours'),
+        'minit':fields.integer('Minutes'),
+        'unit_amount':fields.float('Unit amount',digits=(15,2)),
+        'total_amount':fields.float('Total amount',digits=(15,2)),
     }
 
-lmo_new()
+lmo_credits_and_deductions_news()
+
+class lmo_credits_and_deductions_liq(osv.osv):
+    _description="Calculated credits and deductions"
+    _name="lmo.credits.and.deductions.liq"
+    _columns={
+        'payroll_id':fields.many2one('lmo.payroll.dictionary', 'Liquidation', size=5, required=True),
+        'employee_id':fields.many2one('hr.employee', 'Employee', size=10, required=True),
+        'section_id':fields.many2one('hr.section', 'Section', required=True),
+        'place_of_payment':fields.char('Place of payment'),
+        'code_id':fields.many2one('lmo.payroll.code', 'Code', required=True),
+        'unit':fields.integer('Units', size=5),
+        'day':fields.float('Days'),
+        'hour':fields.integer('Minutes'),
+        'minit':fields.integer('Minutes'),
+        'unit_amount':fields.float('Unit amount', digits=(15,2)),
+        'total_amount':fields.float('Total amount', digits=(15,2)),
+        'employee_contrib':fields.float('Personal taxes', digits=(15,2)),
+        'employer_contrib':fields.float('Employer taxes', digits=(15,2)),
+    }
+
+lmo_credits_and_deductions_liq()
 
 # give a meaningful definition of rounding code ACA ES DONDE VOY AGREGAR LO QUE ME PIDE LA DOCUMENTACION
 class lmo_currency(osv.osv):
