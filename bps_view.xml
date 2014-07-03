@@ -147,7 +147,7 @@
 			<field name="name">hr.uy.bps.contributions.and.taxpayer.type.form</field>
 			<field name="model">hr.uy.bps.contributions.and.taxpayer.type</field>
 			<field name="arch" type="xml">
-			<form string="Configuraci&#243;n BPS" version="7.0">
+			<form string="BPS Configuration" version="7.0">
 				<sheet>
 					<group>
 			    			<field name="contribution_code"/>
@@ -164,7 +164,7 @@
 	<field name="name">hr.uy.bps.contributions.and.taxpayer.type.form</field>
 	<field name="model">hr.uy.bps.contributions.and.taxpayer.type</field>
 	<field name="arch" type="xml">
-		<tree string="Tipos de contribuyente">
+		<tree string="Taxpayer type">
 			    <field name="contribution_code"/>
 			    <field name="description_of_contribution"/>
 			    <field name="code_type_of_taxpayer"/>
@@ -179,7 +179,7 @@
 		<field name="name">hr.uy.bps.type.of.remuneration.form</field>
 		<field name="model">hr.uy.bps.type.of.remuneration</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="remuneration_code"/>
@@ -207,7 +207,7 @@
 		<field name="name">hr.uy.bps.functional.link.form</field>
 		<field name="model">hr.uy.bps.functional.link</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="functional_code_link"/>
@@ -222,7 +222,7 @@
 	<field name="name">hr.uy.bps.functional.link.form</field>
 	<field name="model">hr.uy.bps.functional.link</field>
 	<field name="arch" type="xml">
-		<tree string="Vinculo funcional">
+		<tree string="Functional link">
 			    <field name="functional_code_link"/>
 			    <field name="functional_code_description"/>
 		</tree>
@@ -234,7 +234,7 @@
 		<field name="name">hr.uy.bps.country.form</field>
 		<field name="model">hr.uy.bps.country</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="country_id"/>
@@ -261,7 +261,7 @@
 		<field name="name">hr.uy.bps.nationality.form</field>
 		<field name="model">hr.uy.bps.nationality</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="nationality_code"/>
@@ -276,7 +276,7 @@
 	<field name="name">hr.uy.bps.nationality.form</field>
 	<field name="model">hr.uy.bps.nationality</field>
 	<field name="arch" type="xml">
-		<tree string="Nacionalidad">
+		<tree string="Nationality">
 			    <field name="nationality_code"/>
 			    <field name="nationality_description"/>
 		</tree>
@@ -288,7 +288,7 @@
 		<field name="name">hr.uy.bps.gender.form</field>
 		<field name="model">hr.uy.bps.gender</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="gender"/>
@@ -315,7 +315,7 @@
 		<field name="name">hr.uy.bps.marital.status.form</field>
 		<field name="model">hr.uy.bps.marital.status</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="marital_status_code"/>
@@ -330,7 +330,7 @@
 	<field name="name">hr.uy.bps.marital.status.form</field>
 	<field name="model">hr.uy.bps.marital.status</field>
 	<field name="arch" type="xml">
-		<tree string="Estado civil">
+		<tree string="Marital status">
 			    <field name="marital_status_code"/>
 			    <field name="marital_status_description"/>
 		</tree>
@@ -343,7 +343,7 @@
 		<field name="name">hr.uy.bps.health.insurance.form</field>
 		<field name="model">hr.uy.bps.health.insurance</field>
 		<field name="arch" type="xml">
-			<form string="Configuraci&#243;n BPS" version="7.0">
+			<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="health_insurance_code"/>
@@ -358,7 +358,7 @@
 	<field name="name">hr.uy.bps.health.insurance.form</field>
 	<field name="model">hr.uy.bps.health.insurance</field>
 	<field name="arch" type="xml">
-		<tree string="Seguro de salud">
+		<tree string="Health insurance">
 			    <field name="health_insurance_code"/>
 			    <field name="health_insurance_description"/>
 		</tree>
@@ -371,7 +371,7 @@
 		<field name="name">hr.uy.bps.termination.form</field>
 		<field name="model">hr.uy.bps.termination</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 					<field name="termination_code"/>
@@ -386,7 +386,7 @@
 	<field name="name">hr.uy.bps.termination.form</field>
 	<field name="model">hr.uy.bps.termination</field>
 	<field name="arch" type="xml">
-		<tree string="Codigo de baja">
+		<tree string="Termination code">
 			    <field name="termination_code"/>
 			    <field name="termination_description"/>
 		</tree>
@@ -399,7 +399,7 @@
 		<field name="name">hr.uy.bps.exemption.of.contribution.form</field>
 		<field name="model">hr.uy.bps.exemption.of.contribution</field>
 		<field name="arch" type="xml">
-		<form string="Configuraci&#243;n BPS" version="7.0">
+		<form string="BPS Configuration" version="7.0">
 			<sheet>
 				<group>
 				<field name="exemption_code"/>
@@ -415,7 +415,7 @@
 	<field name="name">hr.uy.bps.exemption.of.contribution.form</field>
 	<field name="model">hr.uy.bps.exemption.of.contribution</field>
 	<field name="arch" type="xml">
-		<tree string="Exoneracion de aportes">
+		<tree string="Exemption of contributions">
 			    <field name="exemption_code"/>
 			    <field name="exemption_description"/>
 		</tree>
@@ -427,7 +427,7 @@
 	<field name="name">hr.uy.bps.special.computing.form</field>
 	<field name="model">hr.uy.bps.special.computing</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
 			<group>
 				<field name="computing_code"/>
@@ -442,7 +442,7 @@
 	<field name="name">hr.uy.bps.special.computing.form</field>
 	<field name="model">hr.uy.bps.special.computing</field>
 	<field name="arch" type="xml">
-		<tree string="Computos especiales">
+		<tree string="Special computing">
 				    <field name="computing_code"/>
 				    <field name="computing_description"/>
 		</tree>
@@ -455,7 +455,7 @@
 	<field name="name">hr.uy.hours.per.week.form</field>
 	<field name="model">hr.uy.hours.per.week</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
 			<group>
 				<field name="hour"/>
@@ -465,11 +465,10 @@
 	</field>
 	</record>
 			<record id="view_bps_hours_per_week_tree" model="ir.ui.view">
-	<!--field string="horas semanales"/-->
 	<field name="name">hr.uy.hours.per.week.form</field>
 	<field name="model">hr.uy.hours.per.week</field>
 	<field name="arch" type="xml">
-		<tree string="Horas semanales">
+		<tree string="Weekly hours">
 				    <field name="hour"/>
 		</tree>
 	</field>
@@ -481,7 +480,7 @@
 	<field name="name">hr.uy.accumulation.labor.form</field>
 	<field name="model">hr.uy.accumulation.labor</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
 			<group>
 				<field name="acumulation_code"/>
@@ -496,7 +495,7 @@
 	<field name="name">hr.uy.accumulation.labor.form</field>
 	<field name="model">hr.uy.accumulation.labor</field>
 	<field name="arch" type="xml">
-		<tree string="Acumulacion laboral">
+		<tree string="Accumulation labor">
 				    <field name="acumulation_code"/>
 				    <field name="acumulation_description"/>
 		</tree>
@@ -508,7 +507,7 @@
 	<field name="name">hr.uy.bps.concept.form</field>
 	<field name="model">hr.uy.bps.concept</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
 			<group>
 					<field name="concept_code"/>
@@ -523,7 +522,7 @@
 	<field name="name">hr.uy.bps.concept.form</field>
 	<field name="model">hr.uy.bps.concept</field>
 	<field name="arch" type="xml">
-		<tree string="Concepto">
+		<tree string="Concept">
 				    <field name="concept_code"/>
 				    <field name="concept_description"/>
 		</tree>
@@ -536,7 +535,7 @@
 	<field name="name">hr.uy.bps.category.rural.form</field>
 	<field name="model">hr.uy.bps.category.rural</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
 			<group>
 					<field name="worker_code"/>
@@ -551,7 +550,7 @@
 	<field name="name">hr.uy.bps.category.rural.form</field>
 	<field name="model">hr.uy.bps.category.rural</field>
 	<field name="arch" type="xml">
-		<tree string="Trabajadores rurales">
+		<tree string="Rural workers">
 			    <field name="worker_code"/>
 			    <field name="concept_description"/>
 			    <field name="worker_group"/>
@@ -565,7 +564,7 @@
 	<field name="name">hr.uy.bps.category.construction.form</field>
 	<field name="model">hr.uy.bps.category.construction</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
             <group>
                 <field name="category"/>
@@ -580,7 +579,7 @@
 	<field name="name">hr.uy.bps.category.construction.form</field>
 	<field name="model">hr.uy.bps.category.construction</field>
 	<field name="arch" type="xml">
-		<tree string="Trabajadores de la construccion">
+		<tree string="Construction workers">
 		     <field name="category"/>
              <field name="code"/>
              <field name="type_of_income"/>
@@ -594,7 +593,7 @@
 	<field name="name">hr.uy.bps.labor.relations.form</field>
 	<field name="model">hr.uy.bps.labor.relations</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
 			<group>
 					<field name="code_of_labor_relation"/>
@@ -609,7 +608,7 @@
 	<field name="name">hr.uy.bps.labor.relations.form</field>
 	<field name="model">hr.uy.bps.labor.relations</field>
 	<field name="arch" type="xml">
-		<tree string="Relaciones laborales">
+		<tree string="Labor relations">
 				    <field name="code_of_labor_relation"/>
 				    <field name="description_of_labor_relation"/>
 		</tree>
@@ -622,7 +621,7 @@
 	<field name="name">hr.uy.bps.legal.nature.form</field>
 	<field name="model">hr.uy.bps.legal.nature</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n BPS" version="7.0">
+	<form string="BPS Configuration" version="7.0">
 		<sheet>
 			<group>
 					<field name="code_of_legal_nature"/>
@@ -636,7 +635,7 @@
 	<field name="name">hr.uy.bps.legal.nature.form</field>
 	<field name="model">hr.uy.bps.legal.nature</field>
 	<field name="arch" type="xml">
-		<tree string="Naturaleza Juridica">
+		<tree string="Legal nature">
 				    <field name="code_of_legal_nature"/>
 				    <field name="description_of_legal_nature"/>
 		</tree>
@@ -649,7 +648,7 @@
 	<field name="name">hr.uy.mtss.working.groups.form</field>
 	<field name="model">hr.uy.mtss.working.groups</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n MTSS" version="7.0">
+	<form string="MTSS Configuration" version="7.0">
 		<sheet>
 			<group>
 					<field name="group"/>
@@ -664,7 +663,7 @@
 	<field name="name">hr.uy.mtss.working.groups.form</field>
 	<field name="model">hr.uy.mtss.working.groups</field>
 	<field name="arch" type="xml">
-		<tree string="Grupos de trabajo">
+		<tree string="Working groups">
 				    <field name="group"/>
 				    <field name="description"/>
 		</tree>
@@ -678,7 +677,7 @@
 	<field name="name">hr.uy.mtss.working.subgroups.form</field>
 	<field name="model">hr.uy.mtss.working.subgroups</field>
 	<field name="arch" type="xml">
-	<form string="Configuraci&#243;n MTSS" version="7.0">
+	<form string="MTSS Configuration" version="7.0">
 		<sheet>
 			<group>
 					<field name="subgroup"/>
@@ -694,26 +693,13 @@
 	<field name="name">hr.uy.mtss.working.subgroups.form</field>
 	<field name="model">hr.uy.mtss.working.subgroups</field>
 	<field name="arch" type="xml">
-		<tree string="Subgrupos de trabajo">
+		<tree string="Working subgroups">
 				    <field name="subgroup"/>
 				    <field name="group"/>
 				    <field name="description"/>
 		</tree>
 	</field>
 </record>
-			<!--menuitem action="action_hr_uy_document_type_form" id="Document type" parent="menu_bps_main" sequence="22"/-->
-			<!--record id="view_hr_uy_document_type_tree" model="ir.ui.view">
-	<field string="Type of document"/>
-	<field name="name">hr.uy.document.type.form</field>
-	<field name="model">hr.uy.document.type</field>
-	<field name="arch" type="xml">
-		<tree string="Document type">
-			<field name="document_id"/>
-			<field name="document_description"/>
-		</tree>
-	</field>
-</record-->
-
 
 </data>
 </openerp>
