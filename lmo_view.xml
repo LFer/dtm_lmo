@@ -1,4 +1,4 @@
-f<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
       <record id="action_lmo_account_form" model="ir.actions.act_window">
@@ -213,6 +213,7 @@ f<?xml version="1.0" encoding="utf-8"?>
 								<field name="pcode_taxbases_ids" colspan="4" nolabel="1" mode="tree" >
 									<tree string="Taxbases" editable="bottom">
 										<field name="taxbase_id" />
+										<field name="pcode_id" />
 										<field name="taxbase_percentage" />
 									</tree>
 								</field>
@@ -226,8 +227,6 @@ f<?xml version="1.0" encoding="utf-8"?>
                         </page>
                         <page string="Percentage applications">
                             <group>
-                                <!--<field nolabel="1" name="pcode_taxapplications_ids"/>-->
-                                
 								<field name="pcode_taxapplications_ids" colspan="4" nolabel="1" mode="tree" >
 									<tree string="Percentage applications" editable="bottom">
 										<field name="application_line"/>
@@ -251,7 +250,6 @@ f<?xml version="1.0" encoding="utf-8"?>
             <field name="model">lmo.payroll.code</field>
             <field name="arch" type="xml">
                 <tree string="Liquidation Codes">
-                    <!--<field name="payroll_id"/>-->
                     <field name="pcode_id"/>
                     <field name="name"/>
                     <field name="pcode_short_descr"/>
@@ -270,7 +268,6 @@ f<?xml version="1.0" encoding="utf-8"?>
                 <form string="Code basis" version="7.0">
                     <sheet>
                         <group>
-                            <!--<field name="help"/>-->
                             <field name="basis_tariff"/>
                             <field name="basis_unit_value"/>
                             <field name="basis_minimum"/>
@@ -303,6 +300,66 @@ f<?xml version="1.0" encoding="utf-8"?>
         </record>
 
 
+        <record id="view_lmo_code_taxbase_form" model="ir.ui.view">
+            <field name="name">lmo.payroll.code.taxbase.form</field>
+            <field name="model">lmo.payroll.code.taxbase</field>
+            <field name="arch" type="xml">
+                <form string="Code basis" version="7.0">
+                    <sheet>
+                        <group>
+                            <field name="pcode_id"/>
+                            <field name="taxbase_percentage"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_lmo_code_taxbase_tree" model="ir.ui.view">
+            <field name="name">lmo.payroll.code.taxbase.tree</field>
+            <field name="model">lmo.payroll.code.taxbase</field>
+            <field name="arch" type="xml">
+                <tree string="Computation basis">
+                    <field name="pcode_id"/>
+                    <field name="taxbase_percentage"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_lmo_code_taxapplication_form" model="ir.ui.view">
+            <field name="name">lmo.payroll.code.taxapplication.form</field>
+            <field name="model">lmo.payroll.code.taxapplication</field>
+            <field name="arch" type="xml">
+                <form string="Code basis" version="7.0">
+                    <sheet>
+                        <group>
+                            <field name="application_line"/>
+                            <field name="application_amount_from"/>
+                            <field name="application_amount_upto"/>
+                            <field name="application_employee_contrib"/>
+                            <field name="application_employer_contrib"/>
+                            <field name="application_amount_cap"/>
+                            <field name="application_progressive"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_lmo_code_taxapplication_tree" model="ir.ui.view">
+            <field name="name">lmo.payroll.code.taxapplication.tree</field>
+            <field name="model">lmo.payroll.code.taxapplication</field>
+            <field name="arch" type="xml">
+                <tree string="Compute basis">
+                <field name="application_line"/>
+                <field name="application_amount_from"/>
+                <field name="application_amount_upto"/>
+                <field name="application_employee_contrib"/>
+                <field name="application_employer_contrib"/>
+                <field name="application_amount_cap"/>
+                <field name="application_progressive"/>
+                </tree>
+            </field>
+        </record>
 
         <menuitem action="action_lmo_code_form" id="menu_action_lmo_code_form" parent="lmo.menu_lmo_payroll_rules" sequence="3" />
     </data>

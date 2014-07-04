@@ -35,7 +35,6 @@ class lmo_payroll_code(osv.osv):
         #'pcode_receipt_type':fields.char('Line type', size=1,required=True),
         'pcode_bases':fields.one2many('lmo.payroll.code.basis','pcode_id','Associated base'),
         'pcode_taxbases_ids':fields.one2many('lmo.payroll.code.taxbase','pcode_id','Associated tax bases'),
-        #'pcode_taxbases_ids':fields.many2many('lmo.payroll.code.taxbase','lmo_payroll_code_taxbase','pcode_id','taxbase_id','Associated tax bases'),
         'pcode_taxapplications_ids':fields.one2many('lmo.payroll.code.taxapplication','pcode_id','Associated tax applications')
     }
 
@@ -80,8 +79,6 @@ class payroll_dictionary(osv.osv):
         'payroll_code_type':fields.selection((('T','Total'),('C','Code group')),'Liquidation by code',required=True)
 
     }
-    
-    
     _defaults = {
 		'payroll_currency':47,
         }
@@ -121,7 +118,7 @@ class lmo_payroll_code_taxbase(osv.osv):
 		'taxbase_percentage': 100,
     }
 
-lmo_payroll_code_taxbase()
+tax_base()
 
 class tax_application(osv.osv):
     _description="Application"
@@ -273,6 +270,7 @@ class lmo_credits_and_deductions_liq(osv.osv):
 
     }
 
+<<<<<<< HEAD
 lmo_credits_and_deductions_liq()
 
 
