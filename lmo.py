@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
+
 from openerp.osv import osv,fields
 import datetime
 
@@ -32,10 +35,10 @@ class lmo_payroll_code(osv.osv):
         'pcode_unit_type':fields.selection((('I','Amount'),('%','Percentage'),('U','Unit'),('T','Days/Hours/Minutes'),('R','Retroactive')),'Unit',required=True),
         'pcode_autogen':fields.selection((('G','From fixed credits and retentions'),('N','Not generated from credits and retentions')),'Automatic code',required=True),
         'pcode_movement_type':fields.selection((('S','Salary'),('J',"Day's wages"),('C','Common movement')),'Movement type',required=True),
-        #'pcode_receipt_type':fields.char('Line type', size=1,required=True),
         'pcode_bases':fields.one2many('lmo.payroll.code.basis','pcode_id','Associated base'),
         'pcode_taxbases_ids':fields.one2many('lmo.payroll.code.taxbase','pcode_id','Associated tax bases'),
-        'pcode_taxapplications_ids':fields.one2many('lmo.payroll.code.taxapplication','pcode_id','Associated tax applications')
+        'pcode_taxapplications_ids':fields.one2many('lmo.payroll.code.taxapplication','pcode_id','Associated tax applications'),
+        'forced_code':fields.boolean('Forced code', required=True),
     }
 
     def name_get(self, cr, uid, ids, context=None):
@@ -52,15 +55,12 @@ class lmo_payroll_code(osv.osv):
 lmo_payroll_code()
 
 class payroll_dictionary(osv.osv):
-
     _description="Liquidation"
     _name="lmo.payroll.dictionary"
 
     def name_get(self, cr, uid, ids, context=None):
         if not ids:
             return []
-        #import pdb
-        #pdb.set_trace()
         reads = self.read(cr, uid, ids, ['payroll_description','payroll_date','company_id'], context=context)
         res = []
         for record in reads:
@@ -71,7 +71,6 @@ class payroll_dictionary(osv.osv):
         'payroll_currency':fields.many2one('res.currency', 'Currency', required=True),
         'company_id':fields.many2one('res.company','Associated company',required=True),
         'payroll_code_ids':fields.one2many('lmo.payroll.code','payroll_id','Associated codes'),
-        ###'payroll_id':fields.integer('Liquidation id',size=5,required=True),
         'payroll_date':fields.date('Date',required=True),
         'payroll_description':fields.char('Liquidation desc.',size=30,required=True),
         'payroll_particular':fields.selection((('T','Total'),('P','Particular')),'Particular liquidation',required=True),
@@ -98,7 +97,6 @@ class code_basis(osv.osv):
         'basis_day':fields.float('Basis day',digits=(11,4)),
         'basis_hour':fields.float('Basis hour',digits=(11,4)),
         'basis_computation_type':fields.selection((('+','Addition'),('-','Substraction'),('*','Multiplication'),('/','Division')),'Computation type'),
-        #'help':fields.text('Desc', help="Se deben ingresar los datos necesarios para calcular los codigos en tiempo y unidades", required=True, readonly=True),
     }
 
 code_basis()
@@ -106,7 +104,6 @@ code_basis()
 class lmo_payroll_code_taxbase(osv.osv):
     _description="Taxbase"
     _name="lmo.payroll.code.taxbase"
-
     _columns={
         #'pcode_id':fields.many2one('lmo.payroll.code','Associated code'),
         'pcode_id':fields.integer('Original code'),
@@ -118,7 +115,7 @@ class lmo_payroll_code_taxbase(osv.osv):
 		'taxbase_percentage': 100,
     }
 
-tax_base()
+lmo_payroll_code_taxbase()
 
 class tax_application(osv.osv):
     _description="Application"
@@ -135,7 +132,6 @@ class tax_application(osv.osv):
     }
 
 tax_application()
-
 
 class lmo_credits_and_deductions_fixed(osv.osv):
     _description="Fixed credits and deductions"
@@ -155,21 +151,15 @@ class lmo_credits_and_deductions_fixed(osv.osv):
         'pay_type':fields.char('Type of work', size=1),
         'company_id':fields.integer('Company'),
         'currency_id':fields.many2one('res.currency', 'Currency'),
-        
-        
-        
-
     }
+    
     def create(self, cr, uid, values, context=None):
-        #import pdb
-        #pdb.set_trace()
         #departamento
         employee_data = self.pool.get('hr.employee').read(cr, uid, values['employee_id'])
         #compania
         resource_data = self.pool.get('resource.resource').read(cr, uid, employee_data['resource_id'][0])
         #moneda
         currency_data = self.pool.get('lmo.payroll.dictionary').read(cr, uid, values['payroll_id'])
-            
         
         values['department_id'] = employee_data['department_id'][0]
         values['pay_type'] = employee_data['pay_type']
@@ -177,21 +167,15 @@ class lmo_credits_and_deductions_fixed(osv.osv):
         values['currency_id'] = currency_data['payroll_currency'][0]
         return super(lmo_credits_and_deductions_fixed, self).create(cr, uid, values, context=context)
         
-        
     def write(self, cr, uid, ids, values, context=None):
-        #import pdb
-        #pdb.set_trace()
         if  'employee_id' in values.keys():
             employee_data = self.pool.get('hr.employee').read(cr, uid, values['employee_id'])
             values['department_id'] = employee_data['department_id'][0]
             values['pay_type'] = employee_data['pay_type'][0]
             values['company_id'] = resource_data['company_id'][0]
             values['currency_id'] = currency_data['payroll_currency'][0]
-
         return super(lmo_credits_and_deductions_fixed, self).write(cr, uid, ids, values, context=context)
-        
-
-
+   
 lmo_credits_and_deductions_fixed()
 
 class lmo_credits_and_deductions_news(osv.osv):
@@ -215,15 +199,12 @@ class lmo_credits_and_deductions_news(osv.osv):
         
     }
     def create(self, cr, uid, values, context=None):
-        #import pdb
-        #pdb.set_trace()
         #departamento
         employee_data = self.pool.get('hr.employee').read(cr, uid, values['employee_id'])
         #compania
         resource_data = self.pool.get('resource.resource').read(cr, uid, employee_data['resource_id'][0])
         #moneda
         currency_data = self.pool.get('lmo.payroll.dictionary').read(cr, uid, values['payroll_id'])
-            
         
         values['department_id'] = employee_data['department_id'][0]
         values['pay_type'] = employee_data['pay_type']
@@ -231,19 +212,14 @@ class lmo_credits_and_deductions_news(osv.osv):
         values['currency_id'] = currency_data['payroll_currency'][0]
         return super(lmo_credits_and_deductions_news, self).create(cr, uid, values, context=context)
         
-        
     def write(self, cr, uid, ids, values, context=None):
-        #import pdb
-        #pdb.set_trace()
         if  'employee_id' in values.keys():
             employee_data = self.pool.get('hr.employee').read(cr, uid, values['employee_id'])
             values['department_id'] = employee_data['department_id'][0]
             values['pay_type'] = employee_data['pay_type'][0]
             values['company_id'] = resource_data['company_id'][0]
             values['currency_id'] = currency_data['payroll_currency'][0]
-
         return super(lmo_credits_and_deductions_news, self).write(cr, uid, ids, values, context=context)
-
 
 lmo_credits_and_deductions_news()
 
@@ -267,12 +243,9 @@ class lmo_credits_and_deductions_liq(osv.osv):
         'pay_type':fields.char('Type of work', size=1),
         'company_id':fields.integer('Company'),
         'currency_id':fields.many2one('res.currency', 'Currency'),
-
     }
 
-<<<<<<< HEAD
 lmo_credits_and_deductions_liq()
-
 
 class lmo_account (osv.osv):
     _description="Account"
@@ -297,7 +270,6 @@ class lmo_account (osv.osv):
 lmo_account()
 
 class res_currency(osv.osv):
-
     _inherit = 'res.currency'
     _columns = {
         'currency_code':fields.integer('Local currency code',size=3)

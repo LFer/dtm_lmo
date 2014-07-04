@@ -204,6 +204,7 @@
                                 <field name="pcode_unit_type"/>
                                 <field name="pcode_autogen"/>
                                 <field name="pcode_movement_type"/>
+                                <field name="forced_code"/>
                             </group>
                         </page>
                         <page string="Taxbases">
@@ -295,68 +296,6 @@
                     <field name="basis_day"/>
                     <field name="basis_hour"/>
                     <field name="basis_computation_type"/>
-                </tree>
-            </field>
-        </record>
-
-
-        <record id="view_lmo_code_taxbase_form" model="ir.ui.view">
-            <field name="name">lmo.payroll.code.taxbase.form</field>
-            <field name="model">lmo.payroll.code.taxbase</field>
-            <field name="arch" type="xml">
-                <form string="Code basis" version="7.0">
-                    <sheet>
-                        <group>
-                            <field name="pcode_id"/>
-                            <field name="taxbase_percentage"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="view_lmo_code_taxbase_tree" model="ir.ui.view">
-            <field name="name">lmo.payroll.code.taxbase.tree</field>
-            <field name="model">lmo.payroll.code.taxbase</field>
-            <field name="arch" type="xml">
-                <tree string="Computation basis">
-                    <field name="pcode_id"/>
-                    <field name="taxbase_percentage"/>
-                </tree>
-            </field>
-        </record>
-        <record id="view_lmo_code_taxapplication_form" model="ir.ui.view">
-            <field name="name">lmo.payroll.code.taxapplication.form</field>
-            <field name="model">lmo.payroll.code.taxapplication</field>
-            <field name="arch" type="xml">
-                <form string="Code basis" version="7.0">
-                    <sheet>
-                        <group>
-                            <field name="application_line"/>
-                            <field name="application_amount_from"/>
-                            <field name="application_amount_upto"/>
-                            <field name="application_employee_contrib"/>
-                            <field name="application_employer_contrib"/>
-                            <field name="application_amount_cap"/>
-                            <field name="application_progressive"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="view_lmo_code_taxapplication_tree" model="ir.ui.view">
-            <field name="name">lmo.payroll.code.taxapplication.tree</field>
-            <field name="model">lmo.payroll.code.taxapplication</field>
-            <field name="arch" type="xml">
-                <tree string="Compute basis">
-                <field name="application_line"/>
-                <field name="application_amount_from"/>
-                <field name="application_amount_upto"/>
-                <field name="application_employee_contrib"/>
-                <field name="application_employer_contrib"/>
-                <field name="application_amount_cap"/>
-                <field name="application_progressive"/>
                 </tree>
             </field>
         </record>

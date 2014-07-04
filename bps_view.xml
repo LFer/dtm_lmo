@@ -174,7 +174,7 @@
 </record>
 
 
-		<menuitem action="action_bps_type_of_remuneration_form" id="Tipo de Remuneracion" parent="menu_bps_main" sequence="2" />
+		<menuitem action="action_bps_type_of_remuneration_form" id="Type of remuneration" parent="menu_bps_main" sequence="2" />
 			<record id="hr_uy_bps_type_of_remuneration_view" model="ir.ui.view">
 		<field name="name">hr.uy.bps.type.of.remuneration.form</field>
 		<field name="model">hr.uy.bps.type.of.remuneration</field>
@@ -190,11 +190,10 @@
 		</field>
 	</record>
 			<record id="view_bps_type_of_remuneration_tree" model="ir.ui.view">
-	<!--field string="tipo de remuneracion"/-->
 	<field name="name">hr.uy.bps.type.of.remuneration.form</field>
 	<field name="model">hr.uy.bps.type.of.remuneration</field>
 	<field name="arch" type="xml">
-		<tree string="Tipo de remuneracion">
+		<tree string="Type of remuneration">
 			    <field name="remuneration_code"/>
 			    <field name="description_of_remuneration"/>
 		</tree>
