@@ -19,7 +19,18 @@ class lmo_res_company(osv.osv):
         'payroll_ids':fields.one2many('lmo.payroll.dictionary','company_id','Liquidations'),
         'overdraft_code':fields.many2one('lmo.payroll.code', 'hr_company_uy','Overdraft credit code'),
         'retent_overdraft_code':fields.many2one('lmo.payroll.code', 'Retention credit code'),
+        'rounding_retent':fields.float('Redondeo por movimiento haber', digits=(11,4)),
+        'rounding_have':fields.float('Redondeo por movimiento retencion', digits=(11,4)),
+        'total_rounding':fields.float('Redondeo total', digits=(11,4)),
+        'min_liq':fields.float('Líquido mínimo', digits=(11,4)),
+        'overdraft_type':fields.selection((('N', 'Acepta liquídos negativos'), ('G', 'Genera vale')),'Tipo de tratamiento del sobregiro'),
+        'having_code':fields.many2one('lmo.payroll.code','Código de redondeo haber'),
+        'retent_code':fields.many2one('lmo.payroll.code','Código de redondeo retención'),
+        'code_gen':fields.many2one('lmo.payroll.code','Código del vale Haber a generar'),
+        'code_retent':fields.many2one('lmo.payroll.code','Código del vale Retención a transferir'),
+    
     }
+    
 
 lmo_res_company()
 
@@ -39,6 +50,7 @@ class lmo_payroll_code(osv.osv):
         'pcode_taxbases_ids':fields.one2many('lmo.payroll.code.taxbase','pcode_id','Associated tax bases'),
         'pcode_taxapplications_ids':fields.one2many('lmo.payroll.code.taxapplication','pcode_id','Associated tax applications'),
         'forced_code':fields.boolean('Forced code', required=True),
+
     }
 
     def name_get(self, cr, uid, ids, context=None):

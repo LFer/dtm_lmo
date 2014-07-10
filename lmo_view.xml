@@ -89,7 +89,7 @@
             </field>
         </record>
         
-        <record id="action_payroll_dictionary_form" model="ir.actions.act_window">
+      <record id="action_payroll_dictionary_form" model="ir.actions.act_window">
             <field name="name">Liquidations</field>
             <field name="res_model">lmo.payroll.dictionary</field>
             <field name="view_type">form</field>
@@ -97,7 +97,7 @@
             <field name="search_view_id" ref="view_payroll_dictionary_search"/>
         </record>
         
-        <record id="view_lmo_code_search" model="ir.ui.view">
+      <record id="view_lmo_code_search" model="ir.ui.view">
             <field name="name">lmo.payroll.code.search</field>
             <field name="model">lmo.payroll.code</field>
             <field name="arch" type="xml">
@@ -108,7 +108,7 @@
             </field>
         </record>
         
-        <record id="action_lmo_code_form" model="ir.actions.act_window">
+      <record id="action_lmo_code_form" model="ir.actions.act_window">
             <field name="name">Codes</field>
             <field name="res_model">lmo.payroll.code</field>
             <field name="view_type">form</field>
@@ -169,7 +169,6 @@
               </tree>
             </field>
         </record>
-
        
         <record id="lmo_company_view" model="ir.ui.view" >
             <field name="name">res.company.form.inherit</field>
@@ -178,9 +177,18 @@
             <field name="arch" type="xml">
             <data>
                 <notebook>
-                    <page string="Liquidations">
+                    <page string="Liquidations parameters">
                         <group>
-                            <field name='payroll_ids'/>
+                            <!--field name='payroll_ids'/!-->
+                            <field name="rounding_retent"/>
+                            <field name="rounding_have"/>
+                            <field name="total_rounding"/>
+                            <field name="overdraft_type"/>
+                            <field name="having_code"/>
+                            <field name="retent_code"/>
+                            <field name="code_gen"/>
+                            <field name="code_retent"/>
+                            <field name="min_liq"/>
                         </group>
                     </page>
                 </notebook>
