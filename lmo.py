@@ -31,7 +31,6 @@ class lmo_res_company(osv.osv):
     
     }
     
-
 lmo_res_company()
 
 class lmo_payroll_code(osv.osv):
