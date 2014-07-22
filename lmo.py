@@ -48,7 +48,7 @@ class lmo_payroll_code(osv.osv):
         'pcode_bases':fields.one2many('lmo.payroll.code.basis','pcode_id','Associated base'),
         'pcode_taxbases_ids':fields.one2many('lmo.payroll.code.taxbase','pcode_id','Associated tax bases'),
         'pcode_taxapplications_ids':fields.one2many('lmo.payroll.code.taxapplication','pcode_id','Associated tax applications'),
-        'forced_code':fields.boolean('Forced code', required=True),
+        'forced_code':fields.boolean('Forced code'),
 
     }
 
@@ -58,7 +58,7 @@ class lmo_payroll_code(osv.osv):
         reads = self.read(cr, uid, ids, ['pcode_id','name'], context=context)
         res = []
         for record in reads:
-            res.append((record['id'],str(record['pcode_id']) + u' - ' + record['name']))
+            res.append((record['id'],str(record['pcode_id']) + u' - ' + str(record['name'])))
         return res
 
     _sql_constraints=[('unique_code','unique(pcode_id,payroll_id)',"It is not possible to have two codes with the same identifier number on the same liquidation.")]
@@ -99,6 +99,7 @@ class code_basis(osv.osv):
     _description="Code basis"
     _name="lmo.payroll.code.basis"
     _columns={
+        'payroll_id':fields.many2one('lmo.payroll.dictionary','Associated liquidation'),
         'pcode_id':fields.many2one('lmo.payroll.code','Associated code'),
         'basis_tariff':fields.float('Tariff',digits=(11,4)),
         'basis_unit_value':fields.float('Unit value',digits=(11,4)),
@@ -117,6 +118,7 @@ class lmo_payroll_code_taxbase(osv.osv):
     _name="lmo.payroll.code.taxbase"
     _columns={
         #'pcode_id':fields.many2one('lmo.payroll.code','Associated code'),
+        'payroll_id':fields.many2one('lmo.payroll.dictionary','Associated liquidation'),
         'pcode_id':fields.integer('Original code'),
         'taxbase_id':fields.many2one('lmo.payroll.code','Associated code'),
         'taxbase_percentage':fields.float('Percentage',digits=(3,2),required=True)
@@ -132,6 +134,7 @@ class tax_application(osv.osv):
     _description="Application"
     _name="lmo.payroll.code.taxapplication"
     _columns={
+        'payroll_id':fields.many2one('lmo.payroll.dictionary','Associated liquidation'),
         'pcode_id':fields.many2one('lmo.payroll.code','Tax application identifier'),
         'application_line':fields.integer('Line',size=3,required=True),
         'application_amount_from':fields.float('Amount from',digits=(15,2),required=True),
@@ -165,12 +168,15 @@ class lmo_credits_and_deductions_fixed(osv.osv):
     }
     
     def create(self, cr, uid, values, context=None):
+        #import pdb
+        #pdb.set_trace()
         #departamento
         employee_data = self.pool.get('hr.employee').read(cr, uid, values['employee_id'])
         #compania
         resource_data = self.pool.get('resource.resource').read(cr, uid, employee_data['resource_id'][0])
         #moneda
         currency_data = self.pool.get('lmo.payroll.dictionary').read(cr, uid, values['payroll_id'])
+            
         
         values['department_id'] = employee_data['department_id'][0]
         values['pay_type'] = employee_data['pay_type']
@@ -178,14 +184,28 @@ class lmo_credits_and_deductions_fixed(osv.osv):
         values['currency_id'] = currency_data['payroll_currency'][0]
         return super(lmo_credits_and_deductions_fixed, self).create(cr, uid, values, context=context)
         
+        
     def write(self, cr, uid, ids, values, context=None):
+        #import pdb
+        #pdb.set_trace()
         if  'employee_id' in values.keys():
             employee_data = self.pool.get('hr.employee').read(cr, uid, values['employee_id'])
             values['department_id'] = employee_data['department_id'][0]
             values['pay_type'] = employee_data['pay_type'][0]
             values['company_id'] = resource_data['company_id'][0]
             values['currency_id'] = currency_data['payroll_currency'][0]
+
         return super(lmo_credits_and_deductions_fixed, self).write(cr, uid, ids, values, context=context)
+    
+        
+    def name_get(self, cr, uid, ids, context=None):
+        if not ids:
+            return []
+        reads = self.read(cr, uid, ids, ['payroll_id'], context=context)
+        res = []
+        for record in reads:
+            res.append((record['id'],record['payroll_id'][1]))
+        return res
    
 lmo_credits_and_deductions_fixed()
 
@@ -231,6 +251,17 @@ class lmo_credits_and_deductions_news(osv.osv):
             values['company_id'] = resource_data['company_id'][0]
             values['currency_id'] = currency_data['payroll_currency'][0]
         return super(lmo_credits_and_deductions_news, self).write(cr, uid, ids, values, context=context)
+        
+    def name_get(self, cr, uid, ids, context=None):
+        if not ids:
+            return []
+        reads = self.read(cr, uid, ids, ['payroll_id'], context=context)
+        res = []
+        for record in reads:
+            res.append((record['id'],record['payroll_id'][1]))
+        return res
+
+
 
 lmo_credits_and_deductions_news()
 
@@ -277,6 +308,15 @@ class lmo_account (osv.osv):
         'percentage_id':fields.integer('Percentaje', size=5),
         'credit_debit':fields.selection((('D', 'Debt'),('C','Credit')),'Debt/Credit'),
     }
+
+    def name_get(self, cr, uid, ids, context=None):
+        if not ids:
+            return []
+        reads = self.read(cr, uid, ids, ['liquidation_id'], context=context)
+        res = []
+        for record in reads:
+            res.append((record['id'],record['liquidation_id'][1]))
+        return res
 
 lmo_account()
 
