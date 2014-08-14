@@ -68,7 +68,7 @@
       <record id="lmo_employee_view" model="ir.ui.view" >
         <field name="name">hr.employee.form.inherit</field>
         <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr_uy.hr_employee_view"/>
+        <field name="inherit_id" ref="dtm_hr_uy.hr_employee_view"/>
         <field name="arch" type="xml">
             <data>
                 <field name='account_bank' position='after'>
@@ -119,10 +119,10 @@
     <menuitem name="Payroll liquidations" id="menu_lmo_root" sequence="90"/>
     <menuitem id="menu_lmo_main" parent="menu_lmo_root" name="Payroll Liquidations" sequence="0"/>
     <menuitem id="menu_lmo_config" parent="menu_lmo_root" name="Configuration" sequence="90"/>
-    <menuitem id="menu_lmo_configuration" name="Configuration" parent="lmo.menu_lmo_root" sequence="50"/>
-    <menuitem id="menu_lmo_payroll_rules" name="Liquidation rules" parent="lmo.menu_lmo_root" sequence="50"/>
+    <menuitem id="menu_lmo_configuration" name="Configuration" parent="dtm_lmo.menu_lmo_root" sequence="50"/>
+    <menuitem id="menu_lmo_payroll_rules" name="Liquidation rules" parent="dtm_lmo.menu_lmo_root" sequence="50"/>
     <menuitem id="menu_lmo_account" name="Accouting" parent="menu_lmo_payroll_rules" sequence="50" action="action_lmo_account_form"/>
-    <menuitem action="action_payroll_dictionary_form" id="menu_action_payroll_dictionary_form" parent="lmo.menu_lmo_payroll_rules" sequence="3" />
+    <menuitem action="action_payroll_dictionary_form" id="menu_action_payroll_dictionary_form" parent="dtm_lmo.menu_lmo_payroll_rules" sequence="3" />
 
 
         <record id="view_payroll_dictionary_form" model="ir.ui.view">
@@ -308,6 +308,6 @@
             </field>
         </record>
 
-        <menuitem action="action_lmo_code_form" id="menu_action_lmo_code_form" parent="lmo.menu_lmo_payroll_rules" sequence="3" />
+        <menuitem action="action_lmo_code_form" id="menu_action_lmo_code_form" parent="dtm_lmo.menu_lmo_payroll_rules" sequence="3" />
     </data>
 </openerp>

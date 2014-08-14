@@ -33,7 +33,7 @@ Extension de modulo existente de Human Resources Payroll
     'author': 'Datamatic Asequis.',
     'maintainer': 'Datamatic Asequis',
     'website': 'http://www.datamatic.com.uy',
-    'depends': ['hr_uy'],
+    'depends': ['dtm_hr_uy'],
     'data': ['lmo_view.xml','bps_view.xml', 'lmo_currency_view.xml','lmo_assets_and_deductions_view.xml'],
     'installable': True,
     'auto_install': True,
