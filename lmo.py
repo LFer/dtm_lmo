@@ -58,7 +58,7 @@ class lmo_payroll_code(osv.osv):
         reads = self.read(cr, uid, ids, ['pcode_id','name'], context=context)
         res = []
         for record in reads:
-            res.append((record['id'],str(record['pcode_id']) + u' - ' + str(record['name'])))
+            res.append((record['id'],str(record['pcode_id']) + u' - ' + unicode(record['name'])))
         return res
 
     _sql_constraints=[('unique_code','unique(pcode_id,payroll_id)',"It is not possible to have two codes with the same identifier number on the same liquidation.")]
